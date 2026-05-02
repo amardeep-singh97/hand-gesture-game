@@ -1,6 +1,6 @@
 # Hand-gesture-game
 
-Hi Fellow Xsollian, This is a quick project I made to show some of my skills. This is a monorepo. I have used React for Frontend, Express for Backend and PostgreSQL as database.
+A quick monorepo. I have used React for Frontend, Express for Backend and PostgreSQL as database.
 
 ## Instruction for running this Project in your Local:
 
