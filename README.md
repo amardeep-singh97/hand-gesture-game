@@ -9,6 +9,7 @@ A quick monorepo. I have used React for Frontend, Express for Backend and Postgr
 - You just have to run command `docker compose up`. This will create a postgres instance, build the app and run on port `localhost:3001`
 - Before You start using the app. You will need run db migrations. So go to root dir of this project and run `npm run db:push -w server`.
 - App should start and now you can vavigate to `localhost:3001` to enjoy.
+- Use Google Chrome for Best experience.
 
 ### Without Docker 
 
@@ -16,3 +17,4 @@ A quick monorepo. I have used React for Frontend, Express for Backend and Postgr
 - Run `npm run db:push -w server` in Root Dir of this project.
 - Run `npm run dev` in Root Dir of this project.
 - Sever will start at port 3001 and Vite app will start at 5173. Navigate to `localhost:5173` to enjoy.
+- Use Google Chrome for Best experience.
