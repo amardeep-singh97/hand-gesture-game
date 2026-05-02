@@ -1,6 +1,8 @@
+// @ts-ignore
+import "./auth.css";
+
 import { useState } from "react";
 import { LoginInput, SignupInput, loginSchema, signupSchema } from "@app/common";
-import "./auth.css";
 import { useMutation } from "@tanstack/react-query";
 import { appTrpc } from "@/trpc";
 import { useForm } from "react-hook-form";
@@ -61,15 +63,13 @@ export default function Auth() {
 
   const onLoginSubmit = (data: LoginInput) => loginMutation.mutate(data);
   const onSignupSubmit = (data: SignupInput) => {
-    console.log("Signup data:", data);
     signupMutation.mutate(data)
-    // Call your signup mutation here
   };
 
   const toggleView = () => setView(isSignup ? "signin" : "signup");
 
   return (
-    <section className="page login-3-page login-3">
+    <section className="page login-page login">
       <div className="card">
         <div className="card-bg" style={{ translate: isSignup ? 0 : "100%" }} />
 

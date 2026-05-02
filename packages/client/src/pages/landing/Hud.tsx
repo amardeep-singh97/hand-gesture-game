@@ -1,5 +1,7 @@
-import { useQuery } from '@tanstack/react-query';
+// @ts-ignore
 import styles from './HandTrackingExperience.module.css';
+
+import { useQuery } from '@tanstack/react-query';
 import { appTrpc } from '@/trpc';
 
 /**

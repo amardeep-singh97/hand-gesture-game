@@ -1,6 +1,12 @@
+// @ts-ignore
 import styles from './HandTrackingExperience.module.css';
 
-export default function StartOverlay({ visible, onStart }) {
+interface StartOverlayProps {
+  visible : boolean;
+  onStart : () => void;
+}
+
+export default function StartOverlay({ visible, onStart } : StartOverlayProps ) {
   return (
     <div className={`${styles.startOverlay} ${visible ? '' : styles.hidden}`}>
       <h1 className={styles.startTitle}>Welcome!!</h1>

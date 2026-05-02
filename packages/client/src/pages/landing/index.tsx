@@ -1,6 +1,5 @@
-import HandTrackingExperience from "./HandTrackingExperience";
+import HandTrackingExperience from "./hand-tracking-experience";
 
 export default function Landing() {
-    return <HandTrackingExperience/>
-        
+    return <HandTrackingExperience/>    
 }

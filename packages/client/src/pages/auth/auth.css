@@ -1,4 +1,4 @@
-.page.login-3-page {
+.page.login-page {
   --gradient: linear-gradient(-35deg, #8d00ff, #365fe7);
   --muted: #8d889d;
   background: #1e1b2b;
@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-.login-3 .card {
+.login .card {
   position: relative;
   overflow: hidden;
   width: 660px;
@@ -19,7 +19,7 @@
   box-shadow: 0 12px 80px rgba(0, 0, 0, 0.12);
 }
 
-.login-3 .card-bg {
+.login .card-bg {
   position: absolute;
   z-index: 2;
   top: 0;
@@ -31,12 +31,12 @@
   transition: 0.65s;
 }
 
-.login-3 .card-bg.signin {
+.login .card-bg.signin {
   translate: 100% 0;
 }
 
-.login-3 .hero,
-.login-3 .form {
+.login .hero,
+.login .form {
   position: absolute;
   width: 50%;
   height: 100%;
@@ -45,28 +45,28 @@
   transition: 0.65s;
 }
 
-.login-3 .form.signup {
+.login .form.signup {
   left: 50%;
 }
 
-.login-3 .hero.signin {
+.login .hero.signin {
   left: 50%;
   translate: 100% 0;
 }
 
-.login-3 .hero.signin.active {
+.login .hero.signin.active {
   translate: 0;
 }
 
-.login-3 .hero.signup {
+.login .hero.signup {
   translate: -100% 0;
 }
 
-.login-3 .hero.signup.active {
+.login .hero.signup.active {
   translate: 0;
 }
 
-.login-3 .hero {
+.login .hero {
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -79,40 +79,40 @@
   padding: 0 24px;
 }
 
-.login-3 .form.active,
-.login-3 .hero.active {
+.login .form.active,
+.login .hero.active {
   opacity: 1;
   visibility: visible;
 }
 
-.login-3 h2 {
+.login h2 {
   margin: 0;
   font-weight: 500;
 }
 
-.login-3 .form.signin {
+.login .form.signin {
   translate: -100% 0;
 }
 
-.login-3 .form.signin.active {
+.login .form.signin.active {
   translate: 0;
 }
 
-.login-3 .form.signup {
+.login .form.signup {
   translate: 100% 0;
 }
 
-.login-3 .form.signup.active {
+.login .form.signup.active {
   translate: 0;
 }
 
-.login-3 .hero p {
+.login .hero p {
   margin: 0 0 6px;
   opacity: 0.75;
   line-height: 1.45;
 }
 
-.login-3 .hero button {
+.login .hero button {
   padding: 12px 40px;
   border-radius: 32px;
   letter-spacing: 1px;
@@ -124,12 +124,12 @@
   cursor: pointer;
 }
 
-.login-3 .hero button:hover {
+.login .hero button:hover {
   color: #2a449a;
   background: #f9f9f9;
 }
 
-.login-3 .form {
+.login .form {
   background: inherit;
   z-index: 1;
   width: 50%;
@@ -141,25 +141,25 @@
   padding: 32px;
 }
 
-.login-3 .form h2 {
+.login .form h2 {
   font-size: 22px;
   text-align: center;
 }
 
-.login-3 .sso {
+.login .sso {
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 12px;
 }
 
-.login-3 .form form > a {
+.login .form form > a {
   font-size: 14px;
   margin-top: 10px;
   color: var(--muted);
 }
 
-.login-3 .sso a {
+.login .sso a {
   display: grid;
   place-items: center;
   width: 40px;
@@ -169,7 +169,7 @@
   font-size: 16px;
 }
 
-.login-3 .form form {
+.login .form form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -177,14 +177,14 @@
   width: 100%;
 }
 
-.login-3 .form p {
+.login .form p {
   margin: 0 0 -8px;
   text-align: center;
   color: var(--muted);
   font-size: 12px;
 }
 
-.login-3 .form input {
+.login .form input {
   font-family: inherit;
   border-radius: 10px;
   border: 0;
@@ -194,11 +194,11 @@
   width: 100%;
 }
 
-.login-3 .form input::placeholder {
+.login .form input::placeholder {
   color: #8d889d;
 }
 
-.login-3 .form button {
+.login .form button {
   border: 0;
   padding: 14px 0;
   border-radius: 32px;

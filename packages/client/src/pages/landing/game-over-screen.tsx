@@ -1,5 +1,7 @@
-import { RefObject, useEffect } from 'react';
+// @ts-ignore
 import styles from './HandTrackingExperience.module.css';
+
+import { useEffect } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { appTrpc } from '@/trpc';
 
