@@ -1,0 +1,319 @@
+/*
+ * Scoped styles for the Hand Tracking AR experience.
+ * The experience fills its parent container (uses position:absolute children
+ * inside a position:relative root), so it works inside your #root layout
+ * without taking over the viewport.
+ *
+ * Local CSS variables prefixed `--hte-*` so they don't collide with your
+ * global theme variables in index.css.
+ */
+
+.root {
+  --hte-bg-color: #050510;
+  --hte-text-color: #ffffff;
+  --hte-glass-bg: rgba(20, 25, 40, 0.4);
+  --hte-glass-border: rgba(255, 255, 255, 0.15);
+  --hte-glass-blur: blur(16px);
+  --hte-accent: #00ffcc;
+
+  position: relative;
+  width: 100%;
+  flex: 1 1 auto;       /* fill the column inside #root */
+  min-height: 480px;
+  overflow: hidden;
+  background-color: var(--hte-bg-color);
+  color: var(--hte-text-color);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* override the inherited centered text from #root */
+  text-align: left;
+}
+
+.root * {
+  box-sizing: border-box;
+}
+
+.videoContainer {
+  position: absolute;
+  inset: 0;
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  z-index: 0;
+  filter: brightness(0.6) contrast(1.1);
+  transition:
+    width 0.35s ease,
+    height 0.35s ease,
+    top 0.35s ease,
+    left 0.35s ease,
+    right 0.35s ease,
+    bottom 0.35s ease,
+    border-radius 0.35s ease,
+    filter 0.35s ease;
+}
+
+.fnPipMode .video {
+  top: auto;
+  left: auto;
+  right: 16px;
+  bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+  width: min(280px, 34%);
+  height: auto;
+  aspect-ratio: 4 / 3;
+  max-height: 26%;
+  object-fit: cover;
+  z-index: 4;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  filter: brightness(0.88) contrast(1.08) saturate(1.05);
+}
+
+.bgCanvas,
+.mainCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+.bgCanvas {
+  z-index: 1;
+}
+
+.mainCanvas {
+  z-index: 5;
+}
+
+/* HUD */
+.hud {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  pointer-events: none;
+}
+
+.panel {
+  background: var(--hte-glass-bg);
+  backdrop-filter: var(--hte-glass-blur);
+  -webkit-backdrop-filter: var(--hte-glass-blur);
+  border: 1px solid var(--hte-glass-border);
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  min-width: 180px;
+  gap: 16px;
+}
+
+.stat:last-child {
+  margin-bottom: 0;
+}
+
+.statVal {
+  font-weight: bold;
+  color: var(--hte-accent);
+}
+
+.statLives {
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+.subpanelHidden {
+  display: none !important;
+}
+
+/* Theme switcher */
+.themes {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 96%;
+  gap: 10px;
+  background: var(--hte-glass-bg);
+  backdrop-filter: var(--hte-glass-blur);
+  -webkit-backdrop-filter: var(--hte-glass-blur);
+  border: 1px solid var(--hte-glass-border);
+  border-radius: 30px;
+  padding: 8px;
+  transition: opacity 0.5s;
+}
+
+.themeBtn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.themeBtn.active {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  text-shadow: 0 0 10px white;
+}
+
+/* Start overlay */
+.startOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: opacity 0.5s ease;
+  text-align: center;
+  padding: 24px;
+}
+
+.startTitle {
+  margin: 0 0 20px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  color: #fff;
+}
+
+.startBlurb {
+  margin: 0 0 40px;
+  color: #888;
+  max-width: 480px;
+}
+
+.startBtn {
+  padding: 16px 40px;
+  font-size: 1.2rem;
+  background: linear-gradient(45deg, #ff00cc, #3333ff);
+  border: none;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255, 0, 204, 0.5);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: transform 0.2s;
+  font-family: inherit;
+}
+
+.startBtn:hover {
+  transform: scale(1.05);
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Game over */
+.fnGameOver {
+  position: absolute;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  pointer-events: auto;
+  text-align: center;
+  padding: 24px;
+}
+
+.fnGameOver h2 {
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  margin: 0 0 8px;
+  color: #fff;
+}
+
+.fnGameOver p {
+  color: #888;
+  margin: 0 0 24px;
+}
+
+.fnBtn {
+  padding: 12px 32px;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 700;
+  background: linear-gradient(120deg, #7cff6a, #00e0ff);
+  color: #050510;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Logout Button */
+.logoutBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 15;
+  padding: 10px 20px;
+  background: var(--hte-glass-bg);
+  backdrop-filter: var(--hte-glass-blur);
+  -webkit-backdrop-filter: var(--hte-glass-blur);
+  border: 1px solid var(--hte-glass-border);
+  border-radius: 30px;
+  color: var(--hte-text-color);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.logoutBtn:hover {
+  background: rgba(255, 60, 60, 0.15);
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+  transform: translateY(-2px);
+}
+
+.logoutBtn:active {
+  transform: scale(0.95);
+}
+
+/* Optional: Make it red on hover for better UX */
+.logoutBtn:hover {
+  box-shadow: 0 8px 30px rgba(255, 60, 60, 0.3);
+}

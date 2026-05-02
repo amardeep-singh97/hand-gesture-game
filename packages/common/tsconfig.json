@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "composite": false,
+    "declaration": true,
+    "rootDir": "src",
+    "outDir": "./dist",
+  },
+  "include": ["src/**/*"]
+}

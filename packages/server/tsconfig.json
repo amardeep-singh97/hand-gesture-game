@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "outDir": "./dist",
+  "rootDir": "../..",
+    "strict": true,
+    "skipLibCheck": true,
+    "lib": ["ESNext"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@app/common/*": ["../common/src/auth-schemas.ts"]
+    }
+  },
+"include": ["src"],
+}
