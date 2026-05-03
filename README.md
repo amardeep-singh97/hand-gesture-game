@@ -1,6 +1,6 @@
 # Hand-gesture-game
 
-A quick monorepo. I have used React for Frontend, Express for Backend and PostgreSQL as database.
+A quick monorepo. I have used React for Frontend, Express for Backend and PostgreSQL as database. This app uses mediaApi library to hand detection and it has been integrated with fruit ninja game. It is better if you run this app and experience it yourself. 
 
 ## Instruction for running this Project in your Local:
 
